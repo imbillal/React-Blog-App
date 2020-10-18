@@ -9,7 +9,7 @@ function PageRoute() {
     // const dispatch = useDispatch()
     // dispatch({type: 'SET_AUTHENTICATION'})
     // dispatch({type: 'GET_POSTS'})
-    
+     
     // useEffect( () => {
     //     dispatch({type: 'GET_COMMENTS', payload: {posts}})
     //     dispatch({type: 'GET_POST_LIKES', payload: {posts}})
