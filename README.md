@@ -1,4 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## React Blog App
+Simple react js project for share blog <br />
+[Live](https://react-blogapp.netlify.app).
 
 ## Available Scripts
 
