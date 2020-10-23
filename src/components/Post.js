@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, useHistory, useLocation } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import CommentComponent from './comments/Comment'
 import Moment from 'react-moment'
