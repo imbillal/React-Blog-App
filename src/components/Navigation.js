@@ -27,7 +27,7 @@ function Navigation() {
                                 </Dropdown.Toggle>
 
                                 <Dropdown.Menu>
-                                    <Link to={`/user`} className='dropdown-item'>Profile</Link>
+                                    <Link to={`/me`} className='dropdown-item'>Profile</Link>
                                     <Link to='/login' className='dropdown-item text-danger' onClick={ handleClick }>logout</Link>
                                 </Dropdown.Menu>
                                 </Dropdown>

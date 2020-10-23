@@ -51,13 +51,13 @@ function Post({posts}) {
                     }</Moment>
                     <p>{
                             postBody && postBody.length > 80 ?
-                            pathname === '/' || pathname === '/user' || pathname === `/user/${email}` ?  
+                            pathname === '/' || pathname === '/me' || pathname === `/me/${email}` ?  
                                 postBody.substr(0, 80) + '...': postBody 
                                 : postBody
                     }</p>
 
                     {
-                        pathname === '/' || pathname === '/user' || pathname === `/user/${author}` ? 
+                        (pathname === '/' || pathname === '/me' || pathname === `/user/${author}`) ? 
                             <Link to={`/post/${id}`} className="btn btn-primary">View</Link> 
                             : <button className="btn btn-primary" onClick={goBackHandle}><ArrowBackIos /></button>
                     }

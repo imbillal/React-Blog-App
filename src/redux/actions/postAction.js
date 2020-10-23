@@ -19,6 +19,7 @@ import {
     GET_LIKES_SUCCESS,
 
     POST_UPDATED_SUCCESS,
+    UNSET_POST_LIKE,
  } from "../actionTypes"
 
 export const createPostReq = () => {
@@ -130,7 +131,7 @@ export const setLike = (payload) => {
 }
 export const unSetLike = (payload) => {
     return{
-        type: 'UNSET_POST_LIKE',
+        type: UNSET_POST_LIKE,
         payload
     }
 }

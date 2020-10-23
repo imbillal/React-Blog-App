@@ -5,11 +5,6 @@ import {
     unSetLike,
     postUpdated,
 
-    getPostReq, 
-    getLikesReq,
-    createPostReq,
-    getCommentsReq,
-    
     getReqFail, 
     deleteReqFail,
     createReqFail, 
@@ -23,14 +18,13 @@ import {
     
 } from '../actions/postAction'
 import  rsf  from '../../config'
+import { GET_COMMENTS, GET_COMMENT_SUCCESS, GET_LIKES_SUCCESS, GET_POST_LIKES, GET_POST_SUCCESS } from '../actionTypes'
 
 function* createPostSaga ({payload}){
     try{
-        yield put(createPostReq())
         let id = uuid()
         yield call( rsf.firestore.setDocument, `Posts/${id}`, {post: {...payload, id}} );
         yield put(createPostSuccess({...payload, id}))
-        console.log(payload.date);
     } catch ( error ){
         yield put(createReqFail(error))
     }
@@ -39,16 +33,20 @@ function* createPostSaga ({payload}){
 
 function* getPostSaga(){
     try{
-        yield put(getPostReq())
         const snapshot = yield call(rsf.firestore.getCollection, 'Posts')
         let posts = [];
+        let postsIds = []
         snapshot.forEach( post => {
-            posts.push( post.data().post )
+            posts = [...posts, post.data().post]
+            postsIds = [...postsIds, post.data().post.id]
         })
-        yield put(getPostsSuccess({posts}))
+        yield put({type: GET_POST_SUCCESS, payload: posts })
+        yield put({type: GET_POST_LIKES, payload: postsIds })
+        yield put({type: GET_COMMENTS, payload: postsIds })
         
     }catch(error){
         yield put(getReqFail(error))
+        console.log(error);
     }
 }
 
@@ -108,21 +106,14 @@ function* setCommentSaga({payload}){
 
 function* getCommentSaga({payload}){
     try{
-        yield put(getCommentsReq())
-        let postsIds = []
-        payload.posts && payload.posts.map( post => {
-            postsIds.push(post.id)
-        })
-
         let comments = []
-
-        for (let index = 0; index < postsIds.length; index++) {
-            const snapshot = yield call(rsf.firestore.getCollection, `Posts/${postsIds[index]}/Comments`)
+        for (let index = 0; index < payload.length; index++) {
+            const snapshot = yield call(rsf.firestore.getCollection, `Posts/${payload[index]}/Comments`)
             snapshot.forEach( comment => {
                 comments = [...comments, comment.data()]
             })
         }
-        return comments ? yield put({type: 'GET_COMMENT_SUCCESS', payload: comments}): null;
+        yield put({type: GET_COMMENT_SUCCESS, payload: comments})
     }catch(error){
         yield put(getCommentReqFail(error))
     }
@@ -131,21 +122,14 @@ function* getCommentSaga({payload}){
 
 function* getPostLikesSaga({payload}){
     try{
-        yield put(getLikesReq())
-        let postsIds = []
-        payload.posts && payload.posts.map( post => {
-            postsIds.push(post.id)
-        })
-
         let likes = []
-
-        for (let index = 0; index < postsIds.length; index++) {
-            const snapshot = yield call(rsf.firestore.getCollection, `Posts/${postsIds[index]}/Likes`)
+        for (let index = 0; index < payload.length; index++) {
+            const snapshot = yield call(rsf.firestore.getCollection, `Posts/${payload[index]}/Likes`)
             snapshot.forEach( like => {
                 likes = [...likes, like.data()]
             })
         }
-        return likes ? yield put({type: 'GET_LIKES_SUCCESS', payload: likes}): null;
+        return likes ? yield put({type: GET_LIKES_SUCCESS, payload: likes}): null;
     }catch(error){
         yield put(getLikesReqFail(error))
     }
@@ -160,6 +144,6 @@ export default [
     takeLatest('LIKE_POST', setLikeSaga),
     takeLatest('UNLIKE_POST', unSetLikeSaga),
     takeLatest('SET_COMMENT', setCommentSaga),
-    takeLatest('GET_COMMENTS', getCommentSaga),
-    takeLatest('GET_POST_LIKES', getPostLikesSaga),
+    takeLatest(GET_COMMENTS, getCommentSaga),
+    takeLatest(GET_POST_LIKES, getPostLikesSaga),
 ]

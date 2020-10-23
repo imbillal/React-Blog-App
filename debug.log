@@ -10,3 +10,23 @@
 [1016/122409.779:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
 [1017/190402.899:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
 [1018/102625.594:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1019/115037.673:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1020/001851.096:ERROR:process_reader_win.cc(127)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[1020/001851.059:ERROR:process_reader_win.cc(127)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[1020/001851.053:ERROR:process_reader_win.cc(127)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[1020/001851.128:ERROR:process_reader_win.cc(127)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[1020/001851.151:ERROR:process_reader_win.cc(127)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[1020/001851.173:ERROR:process_reader_win.cc(127)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[1020/001851.276:ERROR:exception_snapshot_win.cc(100)] thread ID 12456 not found in process
+[1020/001851.276:ERROR:exception_snapshot_win.cc(100)] thread ID 5724 not found in process
+[1020/001851.276:ERROR:exception_snapshot_win.cc(100)] thread ID 6912 not found in process
+[1020/001851.276:ERROR:exception_snapshot_win.cc(100)] thread ID 4376 not found in process
+[1020/001851.276:ERROR:exception_snapshot_win.cc(100)] thread ID 11328 not found in process
+[1020/001851.276:ERROR:exception_snapshot_win.cc(100)] thread ID 6992 not found in process
+[1020/001855.434:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\Billal Hossain\AppData\Local\Microsoft\Edge\User Data\Crashpad\attachments\cdec1f1b-c674-4e1e-8015-83dbb0288cc7: The system cannot find the path specified. (0x3)
+[1020/001855.472:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\Billal Hossain\AppData\Local\Microsoft\Edge\User Data\Crashpad\attachments\b2575b37-29c5-4cea-b172-c678f498f1f9: The system cannot find the path specified. (0x3)
+[1020/001855.502:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\Billal Hossain\AppData\Local\Microsoft\Edge\User Data\Crashpad\attachments\a8420938-59cc-4c71-8ebf-75a7b57be49e: The system cannot find the path specified. (0x3)
+[1020/001855.535:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\Billal Hossain\AppData\Local\Microsoft\Edge\User Data\Crashpad\attachments\72ff7c00-9a93-4bf3-bd6c-846d973a350b: The system cannot find the path specified. (0x3)
+[1020/001855.603:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\Billal Hossain\AppData\Local\Microsoft\Edge\User Data\Crashpad\attachments\a2d07caa-8886-4764-991a-5041219aa8fd: The system cannot find the path specified. (0x3)
+[1020/001855.650:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\Billal Hossain\AppData\Local\Microsoft\Edge\User Data\Crashpad\attachments\22ae6068-db03-4503-b069-3cde15121dcd: The system cannot find the path specified. (0x3)
+[1022/215932.707:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)

@@ -21,8 +21,6 @@ function CommentModal({posts, closeModal}) {
                 id
             }}) && setCommentSuccess(true) 
             : setCommentSuccess(false);
-       
-
     }
     useEffect( () => {
         if(commentSuccess){

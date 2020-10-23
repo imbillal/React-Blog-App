@@ -1,10 +1,6 @@
 import { call, fork, put, takeLatest } from 'redux-saga/effects'
 import  rsf  from '../../config'
 import { 
-    loginReq,
-    signUpReq,
-    setAuthReq,
-
     loginFail,
     signUpFail,
     setAuthFail,
@@ -12,10 +8,10 @@ import {
     loginSuccess,
     setAuthSuccess,
 } from '../actions/AuthAction'
+import { GET_POSTS, SET_AUTHENTICATION } from '../actionTypes';
 
 function* userSignupSaga({payload}){
     try{
-        yield put(signUpReq())
         yield call(rsf.auth.createUserWithEmailAndPassword, payload.email, payload.password);
     } catch(error){
         yield put(signUpFail(error.message))
@@ -24,10 +20,10 @@ function* userSignupSaga({payload}){
 
 function* userLoginSaga({payload}){
     try{
-        yield put(loginReq())
         const userInfo = yield call(rsf.auth.signInWithEmailAndPassword, payload.email, payload.password);
         localStorage.setItem("user", JSON.stringify( userInfo.user));
         yield put(loginSuccess(userInfo.user));
+        yield put({type: SET_AUTHENTICATION})
     } catch(error){
         yield put(loginFail(error.message))
     }
@@ -45,11 +41,10 @@ function* userLogoutSaga(){
 
 function* setAuthSaga(){
     try{
-        yield put(setAuthReq())
         let user = JSON.parse( localStorage.getItem('user') )
         if(user){
-            yield put(setAuthSuccess(true))
             yield put(loginSuccess(user))
+            yield put({type: GET_POSTS})
         }
     }catch(error){
         yield put(setAuthFail(error))

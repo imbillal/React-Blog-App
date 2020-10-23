@@ -1,9 +1,4 @@
 import { 
-    LOGIN_REQ, 
-    SIGNUP_REQ,
-    SET_AUTH_REQ,
-
-
     LOGIN_FAIL,
     SIGNUP_FAIL,
     SET_AUTH_FAIL,
@@ -13,26 +8,6 @@ import {
     SIGNUP_SUCCESS,
     SET_AUTH_SUCCESS,
  } from "../actionTypes"
-
-export const loginReq = () => {
-    return {
-        type: LOGIN_REQ
-    }
-}
-
-export const signUpReq = () => {
-    return {
-        type: SIGNUP_REQ
-    }
-}
-
-export const setAuthReq = () => {
-    return {
-        type: SET_AUTH_REQ
-    }
-}
-
-
 
 export const loginFail = (payload) => {
     return {

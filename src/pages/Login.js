@@ -14,15 +14,15 @@ function Login() {
         e.preventDefault()
         dispatch({type: 'LOGIN', payload: {email,password}})
     }
+    let user = localStorage.getItem('user')
     useEffect( () => {
-        if(!error){
+        if(user){
             setEmail('')
             setPassword('')
+            history.push(('/'))
         }
-    },[error])
-    if(authenticated){
-        history.push(('/'))
-    }
+    },[user])
+    
     return (
         <>
         <Wrapper className="container">

@@ -1,8 +1,4 @@
 const { 
-    LOGIN_REQ, 
-    SIGNUP_REQ,
-    SET_AUTH_REQ,
-
     LOGIN_FAIL,
     SIGNUP_FAIL,
     SET_AUTH_FAIL,
@@ -22,14 +18,6 @@ const initialState = {
 
 const authReducer = (state = initialState, action)  => {
     switch(action.type){
-        case LOGIN_REQ:
-        case SIGNUP_REQ:
-        case SET_AUTH_REQ:
-            return {
-                ...state,
-                loading: true
-            }
-        
         
         case LOGIN_FAIL:
         case SIGNUP_FAIL:

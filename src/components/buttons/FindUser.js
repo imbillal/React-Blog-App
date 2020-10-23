@@ -8,7 +8,7 @@ function FindUser({children, userName, className}) {
         <>
             <Link 
                 to={ 
-                    email === userName ? `/user` 
+                    email === userName ? `/me` 
                     : `/user/${userName}`
                 }
                 className={className ? className: null}

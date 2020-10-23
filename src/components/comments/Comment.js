@@ -56,11 +56,11 @@ function CommentComponent({id, PostAuthor}) {
         )
     }
 
-    return !(pathname === '/' || pathname === '/user' || pathname === `/user/${PostAuthor}`)  ? 
-        viewFullCommentSection()
-        : (pathname === '/user' || pathname === `/user/${PostAuthor}`) ? 
+    return pathname === '/' ? 
+            null
+            : pathname === '/me' || pathname === `/user/${PostAuthor}`  ?
             viewMinimizeCommentSection()
-            : null
+            :viewFullCommentSection()
 }
 const SingleComment = styled.div.attrs('single-comment')`
     border-bottom: 1px solid #ddd;

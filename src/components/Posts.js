@@ -1,13 +1,15 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import styled from 'styled-components';
+import LoadingComponent from './LoadingComponent';
 import Post from './Post';
 function Posts() {
-    const posts = useSelector(state => state.postReducer.postInfo.posts)
+    const posts = useSelector(state => state.postReducer.posts)
     const {loading} = useSelector(state => state.postReducer)
 
     if (loading) {
         return (
-            <h3 className="loading text-center">Loading......</h3>
+            <LoadingComponent />
         )
     }
     return (

@@ -1,20 +1,18 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams} from 'react-router'
 import Post from './Post'
 import Navigation from './Navigation'
+import LoadingComponent from './LoadingComponent'
 
 function ViewSinglePost() {
-    const state = useSelector(state => state.postReducer.postInfo.posts)
+    const state = useSelector(state => state.postReducer.posts)
     const { postId } = useParams()
     const {loading} = useSelector(state => state.postReducer)
-
+    
     if (loading) {
         return (
-            <>
-                <Navigation />
-                <h3 className="loading text-center">Loading......</h3>
-            </>
+            <LoadingComponent />
         )
     }
     return (
